@@ -3,7 +3,7 @@ Easy to sync between machines.
 
 **Install**
 
-From .bashrc, &forall; config files &isin; `~/.bash`, include 
+From .bashrc, &forall;`config files` &isin;`~/.bash`, include 
 source declaration `. ~/.bash/filename.sh`
 
 **Links** 
