@@ -3,7 +3,7 @@
 # Add to .bashrc, `. ~/.bash/thisfile.sh`
 
 # Better output
-alias ls="ls --hide='*~' --color=auto"
+alias ls="ls -B --color=auto --group-directories-first"
 
 # Programs
 alias ack='ack-grep'
