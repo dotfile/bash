@@ -11,6 +11,13 @@ alias ack='ack-grep'
 # Typofix
 alias clea='clear'
 alias clera='clear'
+alias cear='clear'
+alias clar='clear'
+alias cler='clear'
+alias celar='clear'
+
+# With args
+alias sthttpd='thttpd -nos' # follow symlinks outside cwd
 
 # Reminders
 alias quit='echo "No, exit."'
