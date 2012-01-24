@@ -1,0 +1,19 @@
+# Readline configuration (.inputrc)
+
+set editing-mode vi
+set keymap vi
+
+#set mark-directories on
+#set mark-symlinked-directories on
+
+# ====================
+# Autocomplete Options
+# ====================
+
+# f<tab> finds `Foo` and `foo`.
+set completion-ignore-case on
+
+# Underscore and hypen treated equivalently
+set completion-map-case on
+
+
