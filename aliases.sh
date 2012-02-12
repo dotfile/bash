@@ -5,8 +5,9 @@
 # Better output
 alias ls="ls -B --color=auto --group-directories-first"
 
-# Programs
+# Shortcuts 
 alias ack='ack-grep'
+alias lsl="ls -l"
 
 # Typofix
 alias clea='clear'
@@ -17,7 +18,8 @@ alias cler='clear'
 alias celar='clear'
 
 # With args
-alias sthttpd='thttpd -nos' # follow symlinks outside cwd
+alias web='thttpd -nos -p 8000' # follow symlinks outside cwd
+alias webhost='thttpd -nos' # follow symlinks outside cwd
 
 # Reminders
 alias quit='echo "No, exit."'

@@ -1,3 +1,6 @@
+# vim: set filetype=bash :
+# Install: `ln -s ~/.bash/dircolors ~/.dircolors`
+#
 # Configuration file for dircolors, a utility to help you set the
 # LS_COLORS environment variable used by GNU ls with the --color option.
 # Copyright (C) 1996, 1999-2010 Free Software Foundation, Inc.
