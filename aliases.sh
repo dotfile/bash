@@ -7,7 +7,8 @@ alias ls="ls -B --color=auto --group-directories-first"
 
 # Shortcuts 
 alias ack='ack-grep'
-alias lsl="ls -l"
+alias lsl='ls -l'
+alias go='gnome-open'
 
 # Typofix
 alias clea='clear'
@@ -22,5 +23,5 @@ alias web='thttpd -nos -p 8000' # follow symlinks outside cwd
 alias webhost='thttpd -nos' # follow symlinks outside cwd
 
 # Reminders
-alias quit='echo "No, exit."'
+alias quit='echo "No, exit. Get it right."'
 
