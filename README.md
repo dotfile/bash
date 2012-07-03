@@ -8,5 +8,6 @@ source declaration `. ~/.bash/filename.sh`
 
 **Links** 
 
-* [https://github.com/echelon/dotfiles-bash](Bash configuration)
-* [https://github.com/echelon/dotfiles-vim](Vim configuration)
+* [Bash configuration](https://github.com/echelon/dotfiles-bash)
+* [Vim configuration](https://github.com/echelon/dotfiles-vim)
+* [AwesomeWM configuration](https://github.com/echelon/dotfiles-awesome)

@@ -20,6 +20,7 @@ alias cear='clear'
 alias clar='clear'
 alias cler='clear'
 alias celar='clear'
+alias claer='clear'
 
 # Reminders
 alias quit='echo "No, exit. Get it right."'
