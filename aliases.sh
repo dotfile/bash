@@ -7,6 +7,7 @@ alias ls="ls -B --color=always --group-directories-first"
 alias less="less -r" # color support
 alias tmux="tmux -2" # 256color
 alias thttpd='thttpd -nos' # follow symlinks outside cwd
+alias wget='wget -p -nd' # Page reqs and no directories
 
 # Shortcuts 
 alias ack='ack-grep'
