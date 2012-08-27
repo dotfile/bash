@@ -1,0 +1,17 @@
+# ----------------------
+# urxvt terminal options
+# ----------------------
+urxvt*background:	black
+urxvt*foreground:	white
+urxvt*transparent:	true
+urxvt*shading:		10
+urxvt*scrollBar:	false
+urxvt*font: xft:Droid Sans Mono:pixelsize=13:antialias=true:hinting=true
+
+# URL Highlighting and Yanking
+urxvt*underlineURLs: true
+urxvt*perl-lib: /home/brandon/.config/misc/urxvt/
+urxvt.perl-ext: selection
+urxvt.perl-ext: mark-yank-urls
+urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+
