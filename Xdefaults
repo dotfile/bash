@@ -1,19 +1,27 @@
-# ----------------------
-# urxvt terminal options
-# ----------------------
-urxvt*background:	black
+! Xdefaults
+! https://github.com/echelon
+! Note: C preprocessor portions are cached by 
+! xrdb (the X Server Resource Database)
+! Call xrdb -load Xdefaults
+
+! ----------------------
+! urxvt terminal options
+! ----------------------
+
+urxvt*background:	black 
 urxvt*foreground:	white
 urxvt*underlineColor: gray
 urxvt*transparent:	true
 urxvt*shading:		10
 urxvt*scrollBar:	false
-#if HOSTNAME == "vaiop"
-urxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+
+#if HOSTNAME == vaiop
+	urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
 #else
-urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+	urxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
 #endif
 
-# URL Highlighting and Yanking
+! URL Highlighting and Yanking
 urxvt*underlineURLs: true
 urxvt*perl-lib: /home/bt/.bash/urxvt/
 urxvt.perl-ext: selection
