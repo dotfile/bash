@@ -6,7 +6,7 @@ urxvt*foreground:	white
 urxvt*transparent:	true
 urxvt*shading:		10
 urxvt*scrollBar:	false
-urxvt*font: xft:Droid Sans Mono:pixelsize=13:antialias=true:hinting=true
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
 
 # URL Highlighting and Yanking
 urxvt*underlineURLs: true
