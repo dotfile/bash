@@ -3,10 +3,15 @@
 # ----------------------
 urxvt*background:	black
 urxvt*foreground:	white
+urxvt*underlineColor: gray
 urxvt*transparent:	true
 urxvt*shading:		10
 urxvt*scrollBar:	false
+#if HOSTNAME == "vaiop"
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+#else
 urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+#endif
 
 # URL Highlighting and Yanking
 urxvt*underlineURLs: true
