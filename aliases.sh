@@ -11,7 +11,6 @@ alias wget='wget -p -nd' # Page reqs and no directories
 
 # Shortcuts 
 alias ack='ack-grep'
-alias lsl='ls -l'
 alias go='gnome-open'
 
 # Typofix
@@ -22,6 +21,8 @@ alias clar='clear'
 alias cler='clear'
 alias celar='clear'
 alias claer='clear'
+alias lsl='ls -l'
+alias ls-l='ls -l'
 
 # Reminders
 alias quit='echo "No, exit. Get it right."'
