@@ -17,13 +17,14 @@ urxvt*scrollBar:	false
 
 #if HOSTNAME == vaiop
 	urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
+	urxvt*perl-lib: /home/bt/.bash/urxvt/
 #else
-	urxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+	urxvt*font: xft:Droid Sans Mono:pixelsize=14:antialias=true:hinting=true
+	urxvt*perl-lib: /home/brandon/.bash/urxvt/
 #endif
 
 ! URL Highlighting and Yanking
 urxvt*underlineURLs: true
-urxvt*perl-lib: /home/bt/.bash/urxvt/
 urxvt.perl-ext: selection
 urxvt.perl-ext: mark-yank-urls
 urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
