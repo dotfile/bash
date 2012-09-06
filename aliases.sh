@@ -12,6 +12,7 @@ alias wget='wget -p -nd' # Page reqs and no directories
 # Shortcuts 
 alias ack='ack-grep'
 alias go='gnome-open'
+alias paste='xclip -o -selection clipboard'
 
 # Typofix
 alias clea='clear'
