@@ -1,0 +1,3 @@
+# vim: set filetype=bash :
+# Make sure that C preprocessor defs work
+xrdb -load ~/.Xdefaults
