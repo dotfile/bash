@@ -21,6 +21,10 @@ urxvt*transparent:	true
 urxvt*shading:		10
 urxvt*scrollBar:	false
 urxvt*cursorBlink:	true
+! Molokai Pink
+urxvt*cursorColor:	#D7005F
+! Molokai Green
+!urxvt*cursorColor:	#87FF00
 
 #if HOSTNAME == vaiop
 	urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
