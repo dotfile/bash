@@ -1,0 +1,4 @@
+# vim: set filetype=bash :
+
+eval $(dircolors -b ~/.config/bash/dircolors.molokai)
+
