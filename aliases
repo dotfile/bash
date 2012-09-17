@@ -8,6 +8,7 @@ alias less="less -r" # color support
 alias tmux="tmux -2" # 256color
 alias thttpd='thttpd -nos' # follow symlinks outside cwd
 alias wget='wget -p -nd' # Page reqs and no directories
+alias diff='colordiff'
 
 # Shortcuts 
 alias ack='ack-grep'

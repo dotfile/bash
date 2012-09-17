@@ -50,7 +50,7 @@ TERM rxvt-unicode-256color
 NORMAL 00;38;5;250 # no color code at all
 #FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
-DIR 01;38;5;198 # directory
+DIR 01;38;5;198 # directory (PINK)
 LINK 01;38;5;37 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
 MULTIHARDLINK 00 # regular file with more than one link
@@ -67,21 +67,13 @@ STICKY_OTHER_WRITABLE 48;5;64;38;5;230 # dir that is sticky and other-writable (
 OTHER_WRITABLE 48;5;235;38;5;33 # dir that is other-writable (o+w) and not sticky
 STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
-EXEC 01;38;5;64
-
 
 
 # This is for files with execute permission:
-EXEC 01;32 
 
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
 # (and any comments you want to add after a '#')
-.cmd 01;32 # executables (bright green)
-.exe 01;32
-.com 01;32
-.btm 01;32
-.bat 01;32
 .tar 01;31 # archives or compressed (bright red)
 .tgz 01;31
 .arj 01;31
@@ -91,9 +83,90 @@ EXEC 01;32
 .z   01;31
 .Z   01;31
 .gz  01;31
-.jpg 01;35 # image formats
-.gif 01;35
-.bmp 01;35
-.xbm 01;35
-.xpm 01;35
-.tif 01;35
+
+# Executables (Bright Green:82)
+EXEC 01;38;5;82 # Files with exec flag
+.cmd 00;38;5;82
+.exe 00;38;5;82
+.com 00;38;5;82
+.btm 00;38;5;82
+.bat 00;38;5;82
+
+# Image formats (Blue:37)
+.jpg 00;38;5;37
+.jpeg 00;38;5;37
+.png 00;38;5;37
+.gif 00;38;5;37
+.bmp 00;38;5;37
+.xbm 00;38;5;37
+.xpm 00;38;5;37
+.tif 00;38;5;37
+.tiff 00;38;5;37
+
+# Document formats (Molokai Purple: 98)
+.pdf 00;38;5;98
+.odf 00;38;5;98
+
+# Audio formats (Molokai Orange: 208)
+.aac    00;38;5;208
+.au     00;38;5;208
+.flac   00;38;5;208
+.mid    00;38;5;208
+.midi   00;38;5;208
+.mka    00;38;5;208
+.mp3    00;38;5;208
+.mpc    00;38;5;208
+.ogg    00;38;5;208
+.ra     00;38;5;208
+.wav    00;38;5;208
+.m4a    00;38;5;208
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.axa    00;38;5;208
+.oga    00;38;5;208
+.spx    00;38;5;208
+.xspf   00;38;5;208
+
+# Video formats (as audio + bold) (Molokai Orange: 208)
+.mov    01;38;5;208
+.mpg    01;38;5;208
+.mpeg   01;38;5;208
+.m2v    01;38;5;208
+.mkv    01;38;5;208
+.ogm    01;38;5;208
+.mp4    01;38;5;208
+.m4v    01;38;5;208
+.mp4v   01;38;5;208
+.vob    01;38;5;208
+.qt     01;38;5;208
+.nuv    01;38;5;208
+.wmv    01;38;5;208
+.asf    01;38;5;208
+.rm     01;38;5;208
+.rmvb   01;38;5;208
+.flc    01;38;5;208
+.avi    01;38;5;208
+.fli    01;38;5;208
+.flv    01;38;5;208
+.gl     01;38;5;208
+.m2ts   01;38;5;208
+.divx   01;38;5;208
+
+# "unimportant" files as logs and backups (base01)
+.log        00;38;5;240
+.bak        00;38;5;240
+.aux        00;38;5;240
+.bbl        00;38;5;240
+.blg        00;38;5;240
+*~          00;38;5;240
+*#          00;38;5;240
+.part       00;38;5;240
+.incomplete 00;38;5;240
+.swp        00;38;5;240
+.tmp        00;38;5;240
+.temp       00;38;5;240
+.o          00;38;5;240
+.pyc        00;38;5;240
+.class      00;38;5;240
+.cache      00;38;5;240
+
+
