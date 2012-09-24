@@ -16,6 +16,7 @@ alias ack='ack-grep'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
 alias sighup='kill -HUP'
+alias ..='cd ..'
 
 # Typofix
 alias clea='clear'
@@ -27,6 +28,7 @@ alias celar='clear'
 alias claer='clear'
 alias lsl='ls -l'
 alias ls-l='ls -l'
+alias cd..='cd ..'
 
 # Reminders
 alias quit='echo "No, exit. Get it right."'
