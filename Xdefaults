@@ -6,8 +6,8 @@
 !	xrdb -merge Xdefaults.COMPUTER_NAME
 
 ! XXX/TODO/FIXME: This file is sourced often and inconsistantly:
-! 1. symlinked: ln -s 'this file' ~/.Xdefaults
-!		(^^^ doesn't handle machine-specific configs!)
+! 1. symlinked: ln -s this_file ~/.Xdefaults
+!		(^^^ doesnt handle machine-specific configs!)
 ! 2. xrdb: called in bash_extra
 
 ! ----------------------
@@ -43,4 +43,18 @@ urxvt*underlineURLs: true
 urxvt.perl-ext: selection
 !urxvt.perl-ext: mark-yank-urls
 !urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+
+! -------------------
+! XLock configuration
+! -------------------
+xlock.mode: rain
+xlock.background: Black
+xlock.foreground: White
+xlock.username:
+xlock.password: enter password:   
+xlock.info: 
+xlock.description: 
+xlock.validate: Validating...
+xlock.icongeometry: 128x128
+xlock.font: -adobe-new century schoolbook-medium-r-normal-*-*-150-*-*-*-*-*-* 
 

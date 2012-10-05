@@ -4,7 +4,7 @@ MY_CONFDIR=$HOME'/.config/bash'
 
 # Load global Xdefaults
 # Then merge in machine-specific Xdefaults
-xrdb -load "$MY_CONFDIR/Xdefaults.x120e"
+xrdb -load "$MY_CONFDIR/Xdefaults"
 case $HOSTNAME in
 	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
 	'vaiop')	xrdb -merge Xdefaults.x120e;;
