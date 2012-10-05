@@ -1,8 +1,14 @@
 ! Xdefaults
 ! https://github.com/echelon
-! Note: C preprocessor portions are cached by 
-! xrdb (the X Server Resource Database)
-! Call xrdb -load Xdefaults
+! 
+! Usage: 
+!	xrdb -load Xdefaults 
+!	xrdb -merge Xdefaults.COMPUTER_NAME
+
+! XXX/TODO/FIXME: This file is sourced often and inconsistantly:
+! 1. symlinked: ln -s 'this file' ~/.Xdefaults
+!		(^^^ doesn't handle machine-specific configs!)
+! 2. xrdb: called in bash_extra
 
 ! ----------------------
 ! xterm terminal options
@@ -14,11 +20,11 @@ XTerm*termName:		xterm-256color
 ! urxvt terminal options
 ! ----------------------
 
-urxvt*background:	black 
+urxvt*background:	black
 urxvt*foreground:	white
 urxvt*underlineColor: gray
 urxvt*transparent:	true
-urxvt*shading:		10
+urxvt*shading:		12
 urxvt*scrollBar:	false
 urxvt*cursorBlink:	true
 ! Molokai Pink
@@ -32,18 +38,9 @@ urxvt.keysym.Control-j: command:\033]721;1\007
 urxvt.keysym.Control-K: command:\033]720;1\007
 urxvt.keysym.Control-J: command:\033]721;1\007
 
-! FIXME: This if-selection doesn't work!
-#if HOSTNAME == vaiop
-	urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
-	urxvt*perl-lib: /home/bt/.config/bash/urxvt/
-#else
-	urxvt*font: xft:Droid Sans Mono:pixelsize=14:antialias=true:hinting=true
-	urxvt*perl-lib: /home/brandon/.bash/urxvt/
-#endif
-
 ! URL Highlighting and Yanking
 urxvt*underlineURLs: true
 urxvt.perl-ext: selection
-urxvt.perl-ext: mark-yank-urls
-urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+!urxvt.perl-ext: mark-yank-urls
+!urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
 

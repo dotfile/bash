@@ -1,0 +1,9 @@
+! Xdefaults
+! https://github.com/echelon
+! 
+! Usage: 
+!	xrdb -load Xdefaults 
+!	xrdb -merge Xdefaults.COMPUTER_NAME
+
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=17:antialias=true:hinting=true
+urxvt*perl-lib: /home/brandon/.config/bash/urxvt/

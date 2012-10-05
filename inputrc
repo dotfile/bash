@@ -1,5 +1,8 @@
 # Readline configuration (.inputrc)
+# https://github.com/echelon
+# Requires symlink ~/.inputrc -> this file
 
+# vim-like input
 set editing-mode vi
 set keymap vi
 

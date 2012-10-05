@@ -22,6 +22,3 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Make sure that C preprocessor defs in .Xdefaults 
-# get processed.
-xrdb -load ~/.Xdefaults
