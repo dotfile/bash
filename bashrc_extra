@@ -7,7 +7,7 @@ MY_CONFDIR=$HOME'/.config/bash'
 xrdb -load "$MY_CONFDIR/Xdefaults"
 case $HOSTNAME in
 	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
-	'vaiop')	xrdb -merge Xdefaults.x120e;;
+	'vaiop')	xrdb -merge "$MY_CONFDIR/Xdefaults.vaiop";;
 	*)			echo 'unknown host -> no local Xdefaults';;
 esac
 
