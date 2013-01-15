@@ -16,11 +16,20 @@ alias ack='ack-grep'
 alias la='ls -a'
 alias ll='ls -l'
 alias lo='ls -o'
+alias lh='ls -d .*'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
 alias sighup='kill -HUP'
+
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Larger, custom stuff
+alias reso='xdpyinfo  | grep "dimensions:"'
+alias mountusb='mount -t vfat /dev/sdb1 /media/phone'
+alias umountusb='umount /media/phone'
 
 # Typofix
 alias clea='clear'
@@ -30,6 +39,7 @@ alias clar='clear'
 alias cler='clear'
 alias celar='clear'
 alias claer='clear'
+alias kilall='killall'
 alias lsl='ls -l'
 alias ls-l='ls -l'
 alias cd..='cd ..'
