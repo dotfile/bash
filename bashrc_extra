@@ -1,16 +1,5 @@
 # vim: set filetype=bash :
 
-MY_CONFDIR=$HOME'/.config/bash'
-
-# Load global Xdefaults
-# Then merge in machine-specific Xdefaults
-xrdb -load "$MY_CONFDIR/Xdefaults"
-case $HOSTNAME in
-	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
-	'vaiop')	xrdb -merge "$MY_CONFDIR/Xdefaults.vaiop";;
-	*)			echo 'unknown host -> no local Xdefaults';;
-esac
-
 # Molokai colorscheme for dircolors 
 eval $(dircolors -b ~/.config/bash/dircolors.molokai)
 
