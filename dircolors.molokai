@@ -106,6 +106,9 @@ EXEC 01;38;5;82 # Files with exec flag
 # Document formats (Molokai Purple: 98)
 .pdf 00;38;5;98
 .odf 00;38;5;98
+.doc 00;38;5;98
+.ppt 00;38;5;98
+.pptx 00;38;5;98
 
 # Audio formats (Molokai Orange: 208)
 .aac    00;38;5;208
@@ -130,6 +133,7 @@ EXEC 01;38;5;82 # Files with exec flag
 .mov    01;38;5;208
 .mpg    01;38;5;208
 .mpeg   01;38;5;208
+.3gp	01;38;5;208
 .m2v    01;38;5;208
 .mkv    01;38;5;208
 .ogm    01;38;5;208
