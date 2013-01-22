@@ -3,7 +3,7 @@
 # Add to .bashrc, `. ~/.bash/thisfile.sh`
 
 # Better usage or output
-alias ls="ls -Bhv --color=always --group-directories-first"
+alias ls="ls -Bhv --color=always --group-directories-first --hide=*pyc"
 alias less="less -r" # color support
 alias tmux="tmux -2" # 256color
 alias thttpd='thttpd -nos' # follow symlinks outside cwd
@@ -14,9 +14,12 @@ alias diff='colordiff'
 # Shortcuts 
 alias ack='ack-grep'
 alias la='ls -a'
+alias lh='ls -d .*'
 alias ll='ls -l'
 alias lo='ls -o'
-alias lh='ls -d .*'
+alias lsa='ls -a'
+alias lsd='ls -d .*'
+alias lsl='ls -l'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
 alias sighup='kill -HUP'

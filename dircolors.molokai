@@ -109,6 +109,7 @@ EXEC 01;38;5;82 # Files with exec flag
 .doc 00;38;5;98
 .ppt 00;38;5;98
 .pptx 00;38;5;98
+.db 00;38;5;98
 
 # Audio formats (Molokai Orange: 208)
 .aac    00;38;5;208
