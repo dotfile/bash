@@ -26,6 +26,11 @@ case $MY_HOSTNAME in
 	*)			echo "Invalid Hostname";;
 esac
 
+# Xmodmap
+if [ -f $HOME/.Xmodmap ]; then
+    /usr/bin/xmodmap $HOME/.Xmodmap
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists

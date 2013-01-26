@@ -1,0 +1,4 @@
+! Xmodmap file
+!remove lock = Caps_Lock
+!clear lock
+keycode 66 = Shift_L

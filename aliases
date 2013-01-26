@@ -10,20 +10,15 @@ alias thttpd='thttpd -nos' # follow symlinks outside cwd
 alias wget='wget -p -nd' # Page reqs and no directories
 alias vi='vi -p' # Open multiple files in tabs
 alias diff='colordiff'
+alias ll='ls -la | ack "\-\>"' # List symlinks
+alias lh='ls -d .*' # List hidden
 
 # Shortcuts 
 alias ack='ack-grep'
-alias la='ls -a'
-alias lh='ls -d .*'
-alias ll='ls -l'
-alias lo='ls -o'
-alias lsa='ls -a'
-alias lsd='ls -d .*'
-alias lsl='ls -l'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
 alias sighup='kill -HUP'
-
+alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -44,6 +39,7 @@ alias celar='clear'
 alias claer='clear'
 alias kilall='killall'
 alias lsl='ls -l'
+alias lsa='ls -a'
 alias ls-l='ls -l'
 alias cd..='cd ..'
 
