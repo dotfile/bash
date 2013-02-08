@@ -29,6 +29,9 @@ alias reso='xdpyinfo  | grep "dimensions:"'
 alias mountusb='mount -t vfat /dev/sdb1 /media/phone'
 alias umountusb='umount /media/phone'
 
+# Mimic vim
+alias :q='exit'
+
 # Typofix
 alias clea='clear'
 alias clera='clear'
