@@ -24,7 +24,7 @@ urxvt*background:	black
 urxvt*foreground:	white
 urxvt*underlineColor: gray
 urxvt*transparent:	true
-urxvt*shading:		12
+urxvt*shading:		6
 urxvt*scrollBar:	false
 urxvt*cursorBlink:	true
 ! Molokai Pink
