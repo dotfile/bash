@@ -6,7 +6,7 @@
 alias ls="ls -Bhv --color=always --group-directories-first --hide=*pyc"
 alias less="less -r" # color support
 alias tmux="tmux -2" # 256color
-alias thttpd='thttpd -nos' # follow symlinks outside cwd
+alias thttpd='thttpd -nos -M 0' # symlinks outside cwd, nocache
 alias wget='wget -p -nd' # Page reqs and no directories
 alias vi='vi -p' # Open multiple files in tabs
 alias diff='colordiff'
