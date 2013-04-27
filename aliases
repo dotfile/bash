@@ -49,3 +49,6 @@ alias cd..='cd ..'
 # Reminders
 alias quit='echo "No, exit. Get it right."'
 
+# Funny
+alias fucking='sudo '
+
