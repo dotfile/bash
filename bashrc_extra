@@ -3,6 +3,23 @@
 # Molokai colorscheme for dircolors 
 eval $(dircolors -b ~/.config/bash/dircolors.molokai)
 
+# Load Xdefaults
+# I've started doing this on shell spawn, because I can't seem 
+# to get the login script to work correctly on multiple systems.
+# TODO: Perhaps call this as a script from AwesomeWM... it doesn't
+# strictly _have_ to be part of a shell init script. Think outside
+# the box.
+MY_CONFDIR=$HOME'/.config/bash'
+MY_HOSTNAME=`uname -n` # $HOSTNAME isn't populated by this time !
+
+xrdb -load "$MY_CONFDIR/Xdefaults"
+
+case $MY_HOSTNAME in
+	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
+	'vaiop')	xrdb -merge "$MY_CONFDIR/Xdefaults.vaiop";;
+	*)			echo "Invalid Hostname";;
+esac
+
 # Set the PS1 prompt to echo useful (and color-coded) info 
 # Note: Colors match molokai theme!
 GRAY='\e[0;38;5;245m'
