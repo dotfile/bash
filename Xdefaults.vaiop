@@ -5,5 +5,5 @@
 !	xrdb -load Xdefaults 
 !	xrdb -merge Xdefaults.COMPUTER_NAME
 
-urxvt*font: xft:DejaVu Sans Mono:pixelsize=22:antialias=true:hinting=true
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=18:antialias=true:hinting=true
 urxvt*perl-lib: /home/bt/.config/bash/urxvt/
