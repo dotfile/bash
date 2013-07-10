@@ -46,6 +46,9 @@ alias lsl='ls -l'
 alias lsa='ls -a'
 alias ls-l='ls -l'
 alias cd..='cd ..'
+alias sshadd='ssh-add'
+alias ssh-ad='ssh-add'
+
 
 # Reminders
 alias quit='echo "No, exit. Get it right."'
