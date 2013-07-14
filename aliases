@@ -25,9 +25,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # Larger, custom stuff
-alias reso='xdpyinfo  | grep "dimensions:"'
-alias mountusb='mount -t vfat /dev/sdb1 /media/phone'
-alias umountusb='umount /media/phone'
+alias resolution='xdpyinfo  | grep "dimensions:"'
 
 # Mimic vim
 alias :q='exit'
@@ -48,7 +46,6 @@ alias ls-l='ls -l'
 alias cd..='cd ..'
 alias sshadd='ssh-add'
 alias ssh-ad='ssh-add'
-
 
 # Reminders
 alias quit='echo "No, exit. Get it right."'
