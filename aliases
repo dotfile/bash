@@ -14,6 +14,7 @@ alias ll='ls -la | ack "\-\>"' # List symlinks
 alias lh='ls -d .*' # List hidden
 
 # Shortcuts 
+alias v='vi'
 alias ack='ack-grep'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
@@ -40,12 +41,14 @@ alias celar='clear'
 alias claer='clear'
 alias lcear='clear'
 alias kilall='killall'
+alias sl='ls'
 alias lsl='ls -l'
 alias lsa='ls -a'
 alias ls-l='ls -l'
 alias cd..='cd ..'
 alias sshadd='ssh-add'
 alias ssh-ad='ssh-add'
+alias nmp='npm'
 
 # Reminders
 alias quit='echo "No, exit. Get it right."'
