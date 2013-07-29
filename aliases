@@ -18,9 +18,6 @@ alias v='vi'
 alias ack='ack-grep'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
-alias commit='git commit -a'
-alias push='git push github master'
-alias pull='git pull github master'
 alias sighup='kill -HUP'
 alias ~='cd ~'
 alias ..='cd ..'
@@ -28,8 +25,18 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# Python Virtualenv
+alias virtualize='virtualenv virtualenv'
+alias activate='source virtualenv/bin/activate'
+
+# Git Shortcuts
+alias commit='git commit -a'
+alias push='git push github master'
+alias pull='git pull github master'
+
 # Larger, custom stuff
 alias resolution='xdpyinfo  | grep "dimensions:"'
+alias reso='resolution'
 
 # Mimic vim
 alias :q='exit'
@@ -46,10 +53,12 @@ alias claer='clear'
 alias lcear='clear'
 alias exi='exit'
 alias kilall='killall'
+alias s='ls'
 alias sl='ls'
 alias lsl='ls -l'
 alias lsa='ls -a'
 alias ls-l='ls -l'
+alias cd.='cd ..'
 alias cd..='cd ..'
 alias sshadd='ssh-add'
 alias ssh-ad='ssh-add'
