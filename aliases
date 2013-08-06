@@ -10,8 +10,6 @@ alias thttpd='thttpd -nos -M 0' # symlinks outside cwd, nocache
 alias wget='wget -p -nd' # Page reqs and no directories
 alias vi='vi -p' # Open multiple files in tabs
 alias diff='colordiff'
-alias ll='ls -la | ack "\-\>"' # List symlinks
-alias lh='ls -d .*' # List hidden
 
 # Shortcuts 
 alias v='vi'
@@ -25,14 +23,22 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# Python Virtualenv
-alias virtualize='virtualenv virtualenv'
-alias activate='source virtualenv/bin/activate'
+# Directory Shortcuts
+alias symlinks='ls -la | ack "\-\>"' # List symlinks
+alias symlink='symlinks'
+alias syms='symlinks'
+alias ll='symlinks'
+alias hidden='ls -d .*' # List hidden
+alias lh='hidden'
 
 # Git Shortcuts
 alias commit='git commit -a'
 alias push='git push github master'
 alias pull='git pull github master'
+
+# Python Virtualenv Shortcuts
+alias virtualize='virtualenv virtualenv'
+alias activate='source virtualenv/bin/activate'
 
 # Larger, custom stuff
 alias resolution='xdpyinfo  | grep "dimensions:"'
@@ -50,6 +56,7 @@ alias clera='clear'
 alias cear='clear'
 alias clar='clear'
 alias cler='clear'
+alias clasr='clear'
 alias celar='clear'
 alias claer='clear'
 alias lcear='clear'
@@ -58,6 +65,7 @@ alias eit='exit'
 alias exi='exit'
 alias ext='exit'
 alias eixt='exit'
+alias gt='git'
 alias gru='grunt'
 alias grun='grunt'
 alias unt='grunt'
