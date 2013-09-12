@@ -14,7 +14,6 @@ alias diff='colordiff'
 # Shortcuts 
 alias v='vi'
 alias ack='ack-grep'
-alias grr='grunt build && grunt watch' # Custom to my workflow
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
 alias sighup='kill -HUP'
@@ -24,27 +23,14 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# Directory Shortcuts
-alias symlinks='ls -la | ack "\-\>"' # List symlinks
-alias symlink='symlinks'
-alias syms='symlinks'
-alias ll='symlinks'
-alias hidden='ls -d .*' # List hidden
-alias lh='hidden'
-alias lsl='ls -l'
-alias lsa='ls -a'
-alias lst='ls --sort=time'
-alias lslt='lsl --sort=time'
-alias lstl='lsl --sort=time'
-alias lstla='lslt --sort=time'
-alias lslat='lslt --sort=time'
-alias lslta='lslt --sort=time'
-alias lstla='lslt --sort=time'
-
 # Git Shortcuts
 alias commit='git commit -a'
 alias push='git push github master || git push origin master'
 alias pull='git pull github master || git pull origin master'
+alias state='git status'
+
+# Javascript and NPM shortcuts
+alias grr='grunt build && grunt watch' # Custom to my workflow
 
 # Python Virtualenv Shortcuts
 alias virtualize='virtualenv virtualenv'
@@ -53,6 +39,28 @@ alias activate='source virtualenv/bin/activate'
 # Larger, custom stuff
 alias resolution='xdpyinfo  | grep "dimensions:"'
 alias reso='resolution'
+
+# Directory Shortcuts
+alias symlinks='ls -la | ack "\-\>"' # List symlinks
+alias symlink='symlinks'
+alias syms='symlinks'
+alias ll='symlinks'
+alias hidden='ls -d .*' # List hidden
+alias lh='hidden'
+
+alias lsl='ls -l'
+alias lsa='ls -a'
+alias lst='ls --sort=time'
+alias lslt='lsl --sort=time'
+alias lstl='lsl --sort=time'
+alias lsla='lsl -a'
+alias lsal='lsl -a'
+alias lsalt='lslt -a'
+alias lsatl='lslt -a'
+alias lslat='lslt -a'
+alias lslta='lslt -a'
+alias lstal='lslt -a'
+alias lstla='lslt -a'
 
 # Mimic vim
 alias :q='exit'
