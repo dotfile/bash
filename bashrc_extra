@@ -4,10 +4,12 @@
 # Auto SSH-ADD for commands
 # Brilliant solution: http://askubuntu.com/a/27298
 check-ssh-add() {
-	if [ "$DESKTOP_SESSION" == "" ]; then
-		if [[ `ssh-add -l` != *id_?sa* ]]; then 
-			ssh-add -t 5h  ## 5 hour ssh-agent expiration
-		fi
+	# XXX: My system returns 'awesome'
+	#if [ "$DESKTOP_SESSION" == "" ]; then
+	#fi
+	if [[ `ssh-add -l` != *id_?sa* ]]; then 
+		echo -n '[ssh-add] '
+		ssh-add -t 5h  ## 5 hour ssh-agent expiration
 	fi
 }
 

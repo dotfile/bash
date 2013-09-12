@@ -14,6 +14,7 @@ alias diff='colordiff'
 # Shortcuts 
 alias v='vi'
 alias ack='ack-grep'
+alias grr='grunt build && grunt watch' # Custom to my workflow
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
 alias sighup='kill -HUP'
