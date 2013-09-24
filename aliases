@@ -16,6 +16,7 @@ alias v='vi'
 alias ack='ack-grep'
 alias go='gnome-open'
 alias paste='xclip -o -selection clipboard'
+alias scan='arp-scan --interface=eth0 --localnet'
 alias sighup='kill -HUP'
 alias ~='cd ~'
 alias ..='cd ..'
@@ -25,14 +26,16 @@ alias .....='cd ../../../..'
 
 # Git Shortcuts
 alias commit='git commit -a'
-alias push='git push github master || git push origin master'
-alias pull='git pull github master || git pull origin master'
+#alias push='git-push github || git-push origin'
+#alias pull='git pull github master || git pull origin master'
 alias state='git status'
 
 # Javascript and NPM shortcuts
 alias grr='grunt build && grunt watch' # Custom to my workflow
 
-# Python Virtualenv Shortcuts
+# Python Shortcuts
+alias web='python -m SimpleHTTPServer'
+alias serve='web'
 alias virtualize='virtualenv virtualenv'
 alias activate='source virtualenv/bin/activate'
 
@@ -48,6 +51,7 @@ alias ll='symlinks'
 alias hidden='ls -d .*' # List hidden
 alias lh='hidden'
 
+# More directory list options
 alias lsl='ls -l'
 alias lsa='ls -a'
 alias lst='ls --sort=time'
@@ -80,6 +84,7 @@ alias celar='clear'
 alias claer='clear'
 alias lcear='clear'
 alias cleear='clear'
+alias ckear='clear'
 alias chmox='chmod'
 alias eit='exit'
 alias exi='exit'
@@ -105,6 +110,6 @@ alias ssh-ad='ssh-add'
 # Reminders
 alias quit='echo "No, exit. Get it right."'
 
-# Funny
+# lol
 alias fucking='sudo '
 

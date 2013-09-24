@@ -13,12 +13,69 @@ check-ssh-add() {
 	fi
 }
 
-# Git push
+# For Git push
 git() {
 	if [ "$1" == "push" ]; then
 		check-ssh-add
 	fi
 	/usr/bin/git $@
+}
+
+# Shorthand/Defaults for git push
+git-push() {
+	dest=''
+	ref=''
+	if [ $# -eq 0 ]; then
+		dest='github'
+		ref='master'
+	elif [ $# -eq 1 ]; then
+		dest=$1
+		ref='master'
+	else
+		dest=$1
+		ref=$2
+	fi
+	echo "> Pushing to $dest the ref $ref"
+	git push $dest $ref
+}
+
+# Shorthand/Defaults for git pull
+git-pull() {
+	dest=''
+	ref=''
+	if [ $# -eq 0 ]; then
+		dest='github'
+		ref='master'
+	elif [ $# -eq 1 ]; then
+		dest=$1
+		ref='master'
+	else
+		dest=$1
+		ref=$2
+	fi
+	echo "> Pulling from $dest the ref $ref"
+	git pull $dest $ref
+}
+
+push() {
+	ref=''
+	if [ $# -eq 0 ]; then
+		ref='master'
+	else
+		ref=$1
+	fi
+	git-push github $ref || git-push origin $ref
+}
+
+
+pull() {
+	ref=''
+	if [ $# -eq 0 ]; then
+		ref='master'
+	else
+		ref=$1
+	fi
+	git-pull github $ref || git-pull origin $ref
 }
 
 ssh() {
