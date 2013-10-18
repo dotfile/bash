@@ -1,6 +1,12 @@
 #!/bin/bash
 # vim: set filetype=bash :
 
+# ================================================= #
+#                                                   #
+#            SSH SESSION MANAGEMENT                 #
+#                                                   #
+# ================================================= #
+
 # Auto SSH-ADD for commands
 # Brilliant solution: http://askubuntu.com/a/27298
 check-ssh-add() {
@@ -13,20 +19,33 @@ check-ssh-add() {
 	fi
 }
 
+# Check that we're ssh-added for git push.
+git() {
+	if [ "$1" == "push" ]; then
+		check-ssh-add
+	fi
+	/usr/bin/git "$@"
+}
+
+rsync() {
+	cmd=$@
+	search="ssh"
+	if [[ "$cmd" == *"$search"* ]]; then
+		check-ssh-add
+	fi
+	/usr/bin/rsync "$@"
+}
+
+ssh() {
+	check-ssh-add
+	/usr/bin/ssh "$@"
+}
 
 # ================================================= #
 #                                                   #
 #            Git / Github Simplifications           #
 #                                                   #
 # ================================================= #
-
-# Check that we're ssh-added for git push.
-git() {
-	if [ "$1" == "push" ]; then
-		check-ssh-add
-	fi
-	/usr/bin/git $@
-}
 
 # Shorthand/Defaults for git push
 git-push() {
@@ -92,9 +111,14 @@ pull() {
 #                                                   #
 # ================================================= #
 
-ssh() {
-	check-ssh-add
-	/usr/bin/ssh $@
+function source() {
+	file="${HOME}/.bashrc"
+	if [ $# -lt 1 ]; then
+		echo "[source] no argument; sourcing $file"
+		builtin source "$file"
+		return
+	fi
+	builtin source "$@"
 }
 
 # Molokai colorscheme for dircolors 
