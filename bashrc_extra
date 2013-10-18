@@ -13,7 +13,14 @@ check-ssh-add() {
 	fi
 }
 
-# For Git push
+
+# ================================================= #
+#                                                   #
+#            Git / Github Simplifications           #
+#                                                   #
+# ================================================= #
+
+# Check that we're ssh-added for git push.
 git() {
 	if [ "$1" == "push" ]; then
 		check-ssh-add
@@ -77,6 +84,13 @@ pull() {
 	fi
 	git-pull github $ref || git-pull origin $ref
 }
+
+
+# ================================================= #
+#                                                   #
+#                   MISCELLANEOUS                   #
+#                                                   #
+# ================================================= #
 
 ssh() {
 	check-ssh-add
