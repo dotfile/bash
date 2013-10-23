@@ -26,9 +26,11 @@ alias .....='cd ../../../..'
 
 # Git Shortcuts
 alias commit='git commit -a'
+alias describe='git describe'
 alias state='git status'
 alias branch='git branch'
 alias merge='git merge'
+alias checkout='git checkout'
 #alias push='git-push github || git-push origin'
 #alias pull='git pull github master || git pull origin master'
 
