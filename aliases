@@ -29,6 +29,7 @@ alias commit='git commit -a'
 alias describe='git describe'
 alias state='git status'
 alias branch='git branch'
+#alias cbranch='git rev-parse --abbrev-ref HEAD' SEE bashrc_extra !
 alias merge='git merge'
 alias checkout='git checkout'
 #alias push='git-push github || git-push origin'

@@ -47,16 +47,18 @@ ssh() {
 #                                                   #
 # ================================================= #
 
+alias cbranch='git rev-parse --abbrev-ref HEAD'
+
 # Shorthand/Defaults for git push
 git-push() {
 	dest=''
 	ref=''
 	if [ $# -eq 0 ]; then
 		dest='github'
-		ref='master'
+		ref=$(cbranch)
 	elif [ $# -eq 1 ]; then
 		dest=$1
-		ref='master'
+		ref=$(cbranch)
 	else
 		dest=$1
 		ref=$2
@@ -86,7 +88,7 @@ git-pull() {
 push() {
 	ref=''
 	if [ $# -eq 0 ]; then
-		ref='master'
+		ref=$(cbranch)
 	else
 		ref=$1
 	fi
