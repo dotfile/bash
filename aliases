@@ -76,8 +76,10 @@ alias :q='exit'
 alias :qa='exit'
 
 # Typofix
+alias cd-='cd -' 
 alias cd.='cd ..'
 alias cd..='cd ..'
+alias cs='cd'
 alias clea='clear'
 alias clera='clear'
 alias cear='clear'
