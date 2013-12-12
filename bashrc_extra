@@ -123,6 +123,26 @@ function source() {
 	builtin source "$@"
 }
 
+
+function cd-base() {
+	PROJ_BASEDIR=$(find_project_basedir)
+	RET=$?
+	if [ $RET -ne 0 ]; then
+		return
+	fi
+	if [ -n "$1" ]; then
+		PROJ_BASEDIR="$PROJ_BASEDIR/$1"
+	fi
+	cd "$PROJ_BASEDIR"
+}
+
+# ================================================= #
+#                                                   #
+#                   CONFIGURATIONS					#
+#                                                   #
+# ================================================= #
+
+
 # Molokai colorscheme for dircolors 
 eval $(dircolors -b ~/.config/bash/dircolors.molokai)
 
@@ -143,10 +163,42 @@ case $MY_HOSTNAME in
 	*)			echo "Invalid Hostname";;
 esac
 
+# Report branch in PS1
+source $MY_CONFDIR/scripts/git-prompt.sh
+
 # Set the PS1 prompt to echo useful (and color-coded) info 
 # Note: Colors match molokai theme!
-GRAY='\e[0;38;5;245m'
-BLUE='\e[1;38;5;37m'
-WHITE='\e[0;38;5;255m'
-PS1="\[$GRAY\]\u@\h:${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$\[$WHITE\] "
+# Codes: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+function fgcolor()
+{
+	local color=$1
+	local bold=$2
+	if [ "$bold" == "bold" ]; then
+		echo '\e[1;38;5;'"${color}m"
+	else
+		echo '\e[0;38;5;'"${color}m"
+	fi
+}
+
+GRAY=245
+BLUE=37
+WHITE=255
+PINK=198
+
+GRAY=$(fgcolor $GRAY)
+BLUE=$(fgcolor $BLUE bold)
+WHITE=$(fgcolor $WHITE)
+PINK=$(fgcolor $PINK)
+
+GIT_PS1_SHOWDIRTYSTATE=1
+
+export PS1="\[$GRAY\]\u@\h:\[$PINK\]\$(__git_ps1 '(%s)')${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$\[$WHITE\] "
+
+#export PS1="\[$GRAY\]\u@\h:\$(__git_ps1 "%s")${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$\[$WHITE\] "
+#        Bash: PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+# Custom scripts
+PATH=/home/brandon/bin2:$PATH
+
 
