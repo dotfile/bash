@@ -195,11 +195,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_STATESEPARATOR=''
 
-
 export PS1="\[$GRAY\]\u@\h:${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$(__git_ps1 '(\[$PINK\]%s\[$GRAY\])')\[$GRAY\]\$\[$WHITE\] "
-
-#export PS1="\[$GRAY\]\u@\h:\$(__git_ps1 "%s")${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$\[$WHITE\] "
-#        Bash: PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 # Custom scripts
 PATH=/home/brandon/bin2:$PATH
