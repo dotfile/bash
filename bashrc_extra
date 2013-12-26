@@ -92,7 +92,7 @@ push() {
 	else
 		ref=$1
 	fi
-	git-push github $ref || git-push origin $ref
+	git-push github $ref || git-push origin $ref || git-push private $ref
 }
 
 
@@ -103,7 +103,7 @@ pull() {
 	else
 		ref=$1
 	fi
-	git-pull github $ref || git-pull origin $ref
+	git-pull github $ref || git-pull origin $ref || git-pull private $ref
 }
 
 
