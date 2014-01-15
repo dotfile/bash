@@ -3,16 +3,15 @@
 # Add to .bashrc, `. ~/.bash/thisfile.sh`
 
 # Better usage or output
-alias ls="ls -Bhv --color=always --group-directories-first --hide=*pyc"
-alias less="less -r" # color support
-alias tmux="tmux -2" # 256color
-alias thttpd='thttpd -nos -M 0' # symlinks outside cwd, nocache
-alias wget='wget -p -nd' # Page reqs and no directories
-alias vi='vi -p' # Open multiple files in tabs
 alias diff='colordiff'
+alias less="less -r" # color support
+alias ls="ls -Bhv --color=always --group-directories-first --hide=*pyc"
+alias thttpd='thttpd -nos -M 0' # symlinks outside cwd, nocache
+alias tmux="tmux -2" # 256color
+alias vi='vi -p' # Open multiple files in tabs
+alias wget='wget -p -nd' # Page reqs and no directories
 
 # Shortcuts 
-alias v='vi'
 alias ack='ack-grep'
 alias acki='ack -i'
 alias cdb='cd-base'
@@ -23,20 +22,25 @@ alias paste='xclip -o -selection clipboard'
 alias scan='arp-scan --interface=eth0 --localnet'
 alias sighup='kill -HUP'
 alias upload='rsync -zrpvuL --exclude="^."'
+alias v='vi'
 alias ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# Git Shortcuts
+# Docker shortcuts
+alias dockerclean='docker rm `docker ps -a -q`'
+alias dockerfix='sudo chmod 777 /var/run/docker.sock'
+
+# Git shortcuts
+alias branch='git branch'
+alias checkout='git checkout'
 alias commit='git commit -a'
 alias describe='git describe'
-alias state='git status'
-alias branch='git branch'
-#alias cbranch='git rev-parse --abbrev-ref HEAD' SEE bashrc_extra !
 alias merge='git merge'
-alias checkout='git checkout'
+alias state='git status'
+#alias cbranch='git rev-parse --abbrev-ref HEAD' SEE bashrc_extra !
 #alias push='git-push github || git-push origin'
 #alias pull='git pull github master || git pull origin master'
 
@@ -44,10 +48,9 @@ alias checkout='git checkout'
 alias grr='grunt build && grunt watch' # Custom to my workflow
 
 # Python Shortcuts
-alias web='python -m SimpleHTTPServer'
-alias serve='web'
-alias virtualize='virtualenv virtualenv'
 alias activate='source virtualenv/bin/activate'
+alias virtualize='virtualenv virtualenv'
+alias web='python -m SimpleHTTPServer'
 
 # Larger, custom stuff
 alias resolution='xdpyinfo  | grep "dimensions:"'
@@ -86,26 +89,26 @@ alias cd-='cd -'
 alias cd.='cd ..'
 alias cd..='cd ..'
 alias cs='cd'
-alias cla='clear'
-alias clea='clear'
-alias clera='clear'
-alias cear='clear'
-alias clar='clear'
-alias cler='clear'
-alias clasr='clear'
-alias clarr='clear'
-alias celar='clear'
-alias cealr='clear'
-alias claer='clear'
-alias lcar='clear'
-alias lear='clear'
-alias lcear='clear'
-alias cleear='clear'
-alias clealr='clear'
 alias cclear='clear'
+alias cealr='clear'
+alias cear='clear'
+alias celar='clear'
+alias ckear='clear'
+alias cla='clear'
+alias claer='clear'
+alias clar='clear'
+alias clarr='clear'
+alias clasr='clear'
+alias clea='clear'
+alias clealr='clear'
+alias cleear='clear'
+alias clera='clear'
+alias cler='clear'
 alias kclear='clear'
 alias kkclear='clear'
-alias ckear='clear'
+alias lcar='clear'
+alias lcear='clear'
+alias lear='clear'
 alias chmox='chmod'
 alias eit='exit'
 alias exi='exit'
