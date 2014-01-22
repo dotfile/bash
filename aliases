@@ -30,8 +30,11 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # Docker shortcuts
-alias dockerclean='docker rm `docker ps -a -q`'
-alias dockerfix='sudo chmod 777 /var/run/docker.sock'
+alias docker_empty="docker images | grep '^<none>' | awk '{print $3}'"
+alias docker_untagged='echo $(docker_empty)'
+alias docker_rmi='docker rmi $(docker_empty)'
+alias docker_clean='docker rm `docker ps -a -q`'
+alias docker_fix='sudo chmod 777 /var/run/docker.sock'
 
 # Git shortcuts
 alias branch='git branch'
@@ -48,8 +51,10 @@ alias state='git status'
 alias grr='grunt build && grunt watch' # Custom to my workflow
 
 # Python Shortcuts
-alias activate='source virtualenv/bin/activate'
 alias virtualize='virtualenv virtualenv'
+alias activate='source $(\
+			find -maxdepth 2 -name bin | \
+			find $(awk "{print $0}") -name activate)'
 alias web='python -m SimpleHTTPServer'
 
 # Larger, custom stuff
