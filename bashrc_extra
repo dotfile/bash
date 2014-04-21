@@ -159,6 +159,7 @@ xrdb -load "$MY_CONFDIR/Xdefaults"
 
 case $MY_HOSTNAME in
 	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
+	'darwin')	xrdb -merge "$MY_CONFDIR/Xdefaults.darwin";;
 	'vaiop')	xrdb -merge "$MY_CONFDIR/Xdefaults.vaiop";;
 	*)			echo "Invalid Hostname";;
 esac
@@ -198,6 +199,6 @@ GIT_PS1_STATESEPARATOR=''
 export PS1="\[$GRAY\]\u@\h:${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$(__git_ps1 '(\[$PINK\]%s\[$GRAY\])')\[$GRAY\]\$\[$WHITE\] "
 
 # Custom scripts
-PATH=/home/brandon/bin2:$PATH
+#PATH=/home/brandon/bin2:$PATH
 
 
