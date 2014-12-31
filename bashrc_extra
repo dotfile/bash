@@ -1,6 +1,84 @@
 #!/bin/bash
 # vim: set filetype=bash :
 
+((++_READ_BASHRC_EXTRA)) # Used for import ordering.
+
+# ================================================= #
+#                                                   #
+#              BASH HELPER FUNCTIONS                #
+#                                                   #
+# ================================================= #
+
+# Asdlias `source` to re-source .bashrc configs when no argument is supplied.
+function source() {
+	if [ $# -eq 1 ]; then
+	  builtin source "$@"
+  else
+    bashrc="${HOME}/.bashrc"
+    echo "[source] no argument; sourcing $bashrc"
+    builtin source "$bashrc"
+  fi
+}
+
+# Print the definition of a shell alias or function.
+# Also print filename and line number for shell functions.
+function get-definition() {
+  if [ $# -lt 1 ]; then
+    return 1 # Otherwise declare dumps all defined names.
+  fi
+
+  # Filename and line number (functions)
+  shopt -s extdebug
+  declare -F "$@"
+  shopt -u extdebug
+
+  # Definition
+  result=$(type -a "$@" 2> /dev/null)
+  [ $? = 0 ] && echo "$result"
+  return $?
+}
+
+# Alias `which` so that it can additionally report on bash functions and
+# aliases.
+# TODO(2014-12-31): mimic the binary, which iterates over all input symbols.
+function which() {
+  result=$(command which "$@")
+  if [ $result ]; then
+    echo "$result"
+    return $?
+  else
+    result=$(get-definition "$@")
+    echo "$result"
+    return $?
+  fi
+}
+
+# ================================================= #
+#                                                   #
+#                   ALERTING                        #
+#                                                   #
+# ================================================= #
+
+# (The following alias is taken from Ubuntu 12.04's default .bashrc file.)
+# Add an "alert" alias for long running commands.
+# Example Usage: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Play a TTS audio alert of the argument. (Requires `festival`)
+function audio-alert() {
+  echo "$@" | festival --tts
+  return $?
+}
+
+# Continue playing audio alert until acknowledged.
+# TODO(2014-12-31): Add parameter for sleep delay
+function infinite-audio-alert() {
+  while true; do
+    audio-alert "$@"
+    sleep 5
+  done
+}
+
 # ================================================= #
 #                                                   #
 #            SSH SESSION MANAGEMENT                 #
@@ -46,6 +124,20 @@ ssh() {
 #            Git / Github Simplifications           #
 #                                                   #
 # ================================================= #
+
+# Change to the root directory of a git project.
+# TODO(2014-12-31): Include script in bash dotfiles repository.
+function cd-base() {
+	PROJ_BASEDIR=$(find_project_basedir)
+	RET=$?
+	if [ $RET -ne 0 ]; then
+		return
+	fi
+	if [ -n "$1" ]; then
+		PROJ_BASEDIR="$PROJ_BASEDIR/$1"
+	fi
+	cd "$PROJ_BASEDIR"
+}
 
 alias cbranch='git rev-parse --abbrev-ref HEAD'
 
@@ -95,7 +187,6 @@ push() {
 	git-push github $ref || git-push origin $ref || git-push private $ref
 }
 
-
 pull() {
 	ref=''
 	if [ $# -eq 0 ]; then
@@ -106,81 +197,11 @@ pull() {
 	git-pull github $ref || git-pull origin $ref || git-pull private $ref
 }
 
-
-# ================================================= #
-#                                                   #
-#                   MISCELLANEOUS                   #
-#                                                   #
-# ================================================= #
-
-# Re-source bashrc configs.
-function source() {
-	file="${HOME}/.bashrc"
-	if [ $# -lt 1 ]; then
-		echo "[source] no argument; sourcing $file"
-		builtin source "$file"
-		return
-	fi
-	builtin source "$@"
-}
-
-# Change to the root directory of a git project.
-# TODO(2014-12-31): Include script in bash dotfiles repository.
-function cd-base() {
-	PROJ_BASEDIR=$(find_project_basedir)
-	RET=$?
-	if [ $RET -ne 0 ]; then
-		return
-	fi
-	if [ -n "$1" ]; then
-		PROJ_BASEDIR="$PROJ_BASEDIR/$1"
-	fi
-	cd "$PROJ_BASEDIR"
-}
-
-# Print the shell definition of an alias or function.
-# Also prints filename and line number for function declarations.
-function get-definition() {
-  if [ $# -lt 1 ]; then
-    return 1 # Otherwise declare dumps all defined names.
-  fi
-
-  # Filename and line number (functions)
-  shopt -s extdebug
-  declare -F "$@"
-  shopt -u extdebug
-
-  # Definition
-  result=$(type -a "$@" 2> /dev/null)
-  [ $? = 0 ] && echo "$result"
-  return $?
-}
-
-# Alias `which` so that it can report on bash functions and aliases.
-# TODO(2014-12-31): mimic the binary, which iterates over all input symbols.
-function which() {
-  result=$(command which "$@")
-  if [ $result ]; then
-    echo "$result"
-    return $?
-  else
-    result=$(get-definition "$@")
-    echo "$result"
-    return $?
-  fi
-}
-
-# Add an "alert" alias for long running commands.
-# Taken from Ubuntu 12.04's default .bashrc file.
-# Example Usage: sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # ================================================= #
 #                                                   #
 #                   CONFIGURATIONS                  #
 #                                                   #
 # ================================================= #
-
 
 # Molokai colorscheme for dircolors 
 eval $(dircolors -b ~/.config/bash/dircolors.molokai)
@@ -239,5 +260,4 @@ export PS1="\[$GRAY\]\u@\h:${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\
 
 # Custom scripts
 #PATH=/home/brandon/bin2:$PATH
-
 

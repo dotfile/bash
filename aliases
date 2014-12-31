@@ -1,6 +1,15 @@
+#!/bin/bash
 # vim: set filetype=bash :
 # Bash aliases (~/.bash/aliases.sh)
 # Add to .bashrc, `. ~/.bash/thisfile.sh`
+
+# Make sure this file is imported after the bashrc_extra script.
+if test ! $_READ_BASHRC_EXTRA || [ $_READ_BASHRC_EXTRA != 1 ]; then
+  >&2 echo 'Warning: `aliases` script should be read *after* `bashrc_extra`.'
+  >&2 echo '         Aliases may not work as expected.'
+fi
+
+((--_READ_BASHRC_EXTRA))
 
 # Better usage or output
 alias diff='colordiff'
