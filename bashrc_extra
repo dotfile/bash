@@ -71,10 +71,24 @@ function audio-alert() {
 }
 
 # Continue playing audio alert until acknowledged.
-# TODO(2014-12-31): Add parameter for sleep delay
+# TODO(2014-12-31): Add parameter for sleep delay.
 function infinite-audio-alert() {
   while true; do
     audio-alert "$@"
+    sleep 5
+  done
+}
+
+# Visually and auditorily alert until acknowledged.
+# TODO(2014-12-31): Add parameter for sleep delay.
+function finished() {
+  notice="$@"
+  if [ $# -lt 1 ]; then
+    notice='Script finished.'
+  fi
+  while true; do
+    alert --expire-time=3000 "$notice"
+    audio-alert "$notice"
     sleep 5
   done
 }
