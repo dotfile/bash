@@ -113,6 +113,7 @@ pull() {
 #                                                   #
 # ================================================= #
 
+# Re-source bashrc configs.
 function source() {
 	file="${HOME}/.bashrc"
 	if [ $# -lt 1 ]; then
@@ -123,7 +124,8 @@ function source() {
 	builtin source "$@"
 }
 
-
+# Change to the root directory of a git project.
+# TODO(2014-12-31): Include script in bash dotfiles repository.
 function cd-base() {
 	PROJ_BASEDIR=$(find_project_basedir)
 	RET=$?
@@ -136,9 +138,46 @@ function cd-base() {
 	cd "$PROJ_BASEDIR"
 }
 
+# Print the shell definition of an alias or function.
+# Also prints filename and line number for function declarations.
+function get-definition() {
+  if [ $# -lt 1 ]; then
+    return 1 # Otherwise declare dumps all defined names.
+  fi
+
+  # Filename and line number (functions)
+  shopt -s extdebug
+  declare -F "$@"
+  shopt -u extdebug
+
+  # Definition
+  result=$(type -a "$@" 2> /dev/null)
+  [ $? = 0 ] && echo "$result"
+  return $?
+}
+
+# Alias `which` so that it can report on bash functions and aliases.
+# TODO(2014-12-31): mimic the binary, which iterates over all input symbols.
+function which() {
+  result=$(command which "$@")
+  if [ $result ]; then
+    echo "$result"
+    return $?
+  else
+    result=$(get-definition "$@")
+    echo "$result"
+    return $?
+  fi
+}
+
+# Add an "alert" alias for long running commands.
+# Taken from Ubuntu 12.04's default .bashrc file.
+# Example Usage: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # ================================================= #
 #                                                   #
-#                   CONFIGURATIONS					#
+#                   CONFIGURATIONS                  #
 #                                                   #
 # ================================================= #
 

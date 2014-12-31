@@ -51,7 +51,7 @@ alias state='git status'
 alias grr='grunt build && grunt watch' # Custom to my workflow
 
 # Python Shortcuts
-alias virtualize='virtualenv virtualenv'
+alias virtualize='virtualenv venv'
 alias activate='source $(\
 			find -maxdepth 2 -name bin | \
 			find $(awk "{print $0}") -name activate)'
