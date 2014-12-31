@@ -81,16 +81,36 @@ function infinite-audio-alert() {
 
 # Visually and auditorily alert until acknowledged.
 # TODO(2014-12-31): Add parameter for sleep delay.
-function finished() {
+function infinite-notify() {
   notice="$@"
   if [ $# -lt 1 ]; then
-    notice='Script finished.'
+    notice='Job completed.'
   fi
   while true; do
-    alert --expire-time=3000 "$notice"
+    alert --expire-time=10000 "$notice"
     audio-alert "$notice"
-    sleep 5
+    sleep 15
   done
+}
+
+# Notify with respect to the exit status code of the previous command.
+# Usage, eg. `./configure && make ; notify-status [success-msg, [fail-msg]]`
+#   arg1 (optional): success message
+#   arg2 (optional): failure message
+function infinite-notify-exit-status() {
+  return_code=$?
+
+  success_message='The previous process completed successfully.'
+  failure_message='The previous process did not complete successfully.'
+
+  if [ $# -gt 0 ]; then success_message="$1"; fi
+  if [ $# -gt 1 ]; then failure_message="$2"; fi
+
+  if [ $return_code != 0 ]; then
+    infinite-notify "$failure_message"
+  else
+    infinite-notify "$success_message"
+  fi
 }
 
 # ================================================= #

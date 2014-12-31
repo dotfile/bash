@@ -38,12 +38,23 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# Notification
+alias completed=$'infinite-notify-exit-status \
+      "Previous job completed successfully." \
+      "There was a problem encountered during the previous job\'s execution."'
+alias compiled='infinite-notify-exit-status \
+      "Program compilation completed successfully." \
+      "There was a problem encountered during program compilation."'
+alias installed='infinite-notify-exit-status \
+      "Installation completed successfully." \
+      "There was a problem encountered during installation."'
+
 # Docker shortcuts
-alias docker_empty="docker images | grep '^<none>' | awk '{print $3}'"
-alias docker_untagged='echo $(docker_empty)'
-alias docker_rmi='docker rmi $(docker_empty)'
-alias docker_clean='docker rm `docker ps -a -q`'
-alias docker_fix='sudo chmod 777 /var/run/docker.sock'
+#alias docker_empty="docker images | grep '^<none>' | awk '{print $3}'"
+#alias docker_untagged='echo $(docker_empty)'
+#alias docker_rmi='docker rmi $(docker_empty)'
+#alias docker_clean='docker rm `docker ps -a -q`'
+#alias docker_fix='sudo chmod 777 /var/run/docker.sock'
 
 # Git shortcuts
 alias branch='git branch'
