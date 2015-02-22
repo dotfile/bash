@@ -1,7 +1,7 @@
 #!/bin/bash
 # vim: set filetype=bash :
-# Bash aliases (~/.bash/aliases.sh)
-# Add to .bashrc, `. ~/.bash/thisfile.sh`
+# Bash aliases (~/.config/term/aliases.sh)
+# Add to .bashrc, `. ~/config/term/thisfile.sh`
 
 # Make sure this file is imported after the bashrc_extra script.
 if test ! $_READ_BASHRC_EXTRA || [ $_READ_BASHRC_EXTRA != 1 ]; then

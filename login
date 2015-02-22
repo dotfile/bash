@@ -11,7 +11,7 @@
 
 # XXX: Link this from .profile !
 
-MY_CONFDIR=$HOME'/.config/bash'
+MY_CONFDIR=$HOME'/.config/term'
 
 # $HOSTNAME isn't populated by this time !
 MY_HOSTNAME=`uname -n`
