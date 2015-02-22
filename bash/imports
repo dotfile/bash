@@ -1,0 +1,9 @@
+#!/bin/bash
+# vim: set filetype=bash :
+
+# Load X11 configs (Xdefaults, etc.)
+source "${TERM_CONFIG_DIR}/x11/load.sh"
+
+# Load Molokai colorscheme for dircolors 
+eval $(dircolors -b ~/.config/term/dircolors/dircolors.molokai)
+

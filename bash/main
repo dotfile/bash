@@ -1,0 +1,14 @@
+#!/bin/bash
+# vim: set filetype=bash :
+
+# Bootstrap the loading of my bash scripts and configs. 
+
+# From http://stackoverflow.com/a/246128
+BASH_CONFIG_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+TERM_CONFIG_DIR=$( cd "${BASH_CONFIG_DIR}/../" && pwd )
+
+source "$BASH_CONFIG_DIR/imports"
+source "$BASH_CONFIG_DIR/functions"
+source "$BASH_CONFIG_DIR/ps1_prompt"
+source "$BASH_CONFIG_DIR/aliases"
+

@@ -38,6 +38,11 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# Silver Surfer
+alias agj='ag --java'
+alias agp='ag --python'
+alias agr='ag --ruby'
+
 # Notification
 alias completed=$'infinite-notify-exit-status \
       "Previous job completed successfully." \

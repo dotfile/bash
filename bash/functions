@@ -1,13 +1,15 @@
 #!/bin/bash
 # vim: set filetype=bash :
+#
+# Defines some useful functions. (Though some have certainly fallen out of use.)
 
+# TODO(2015-02-22): This actually used to be pretty cool, but I see 
+# little need for it now: 
 ((++_READ_BASHRC_EXTRA)) # Used for import ordering.
 
-# ================================================= #
-#                                                   #
-#              BASH HELPER FUNCTIONS                #
-#                                                   #
-# ================================================= #
+# =================================================
+#              BASH HELPER FUNCTIONS
+# =================================================
 
 # Alias `source` to conveniently re-source `.bashrc` when no argument
 # is supplied.
@@ -39,10 +41,11 @@ function get-definition() {
   return $?
 }
 
-# Alias `which` so that it can additionally report on bash functions and
-# aliases.
-# TODO(2014-12-31): mimic the binary, which iterates over all input symbols.
+# Alias `which` so that it can additionally report on bash 
+# functions and aliases.
 function which() {
+  # TODO(2014-12-31): mimic the binary, which iterates over 
+  # all input symbols.
   result=$(command which "$@")
   if [ $result ]; then
     echo "$result"
@@ -54,11 +57,9 @@ function which() {
   fi
 }
 
-# ================================================= #
-#                                                   #
-#                   ALERTING                        #
-#                                                   #
-# ================================================= #
+# =================================================
+#                   ALERTING
+# =================================================
 
 # (The following alias is taken from Ubuntu 12.04's default .bashrc file.)
 # Add an "alert" alias for long running commands.
@@ -114,15 +115,23 @@ function infinite-notify-exit-status() {
   fi
 }
 
-# ================================================= #
-#                                                   #
-#            SSH SESSION MANAGEMENT                 #
-#                                                   #
-# ================================================= #
+# ================================================= 
+#                   NAVIGATION
+# ================================================= 
+
+# If in a symlinked directory, this changes to the real one.
+function shed-symlinks() {
+  cd $(pwd -P)
+}
+
+
+# =================================================
+#            SSH SESSION MANAGEMENT
+# =================================================
 
 # Auto SSH-ADD for commands
 # Brilliant solution: http://askubuntu.com/a/27298
-check-ssh-add() {
+function check-ssh-add() {
 	# XXX: My system returns 'awesome'
 	#if [ "$DESKTOP_SESSION" == "" ]; then
 	#fi
@@ -133,14 +142,14 @@ check-ssh-add() {
 }
 
 # Check that we're ssh-added for git push.
-git() {
+function git() {
 	if [ "$1" == "push" ]; then
 		check-ssh-add
 	fi
 	/usr/bin/git "$@"
 }
 
-rsync() {
+function rsync() {
 	cmd=$@
 	search="ssh"
 	if [[ "$cmd" == *"$search"* ]]; then
@@ -149,20 +158,19 @@ rsync() {
 	/usr/bin/rsync "$@"
 }
 
-ssh() {
+function ssh() {
 	check-ssh-add
 	/usr/bin/ssh "$@"
 }
 
-# ================================================= #
-#                                                   #
-#            Git / Github Simplifications           #
-#                                                   #
-# ================================================= #
+
+# =================================================
+#            Git / Github Simplifications
+# =================================================
 
 # Change to the root directory of a git project.
-# TODO(2014-12-31): Include script in bash dotfiles repository.
 function cd-base() {
+  # TODO(2014-12-31): Include script in bash dotfiles repository.
 	PROJ_BASEDIR=$(find_project_basedir)
 	RET=$?
 	if [ $RET -ne 0 ]; then
@@ -177,7 +185,7 @@ function cd-base() {
 alias cbranch='git rev-parse --abbrev-ref HEAD'
 
 # Shorthand/Defaults for git push
-git-push() {
+function git-push() {
 	dest=''
 	ref=''
 	if [ $# -eq 0 ]; then
@@ -195,7 +203,7 @@ git-push() {
 }
 
 # Shorthand/Defaults for git pull
-git-pull() {
+function git-pull() {
 	dest=''
 	ref=''
 	if [ $# -eq 0 ]; then
@@ -212,7 +220,7 @@ git-pull() {
 	git pull $dest $ref
 }
 
-push() {
+function push() {
 	ref=''
 	if [ $# -eq 0 ]; then
 		ref=$(cbranch)
@@ -222,7 +230,7 @@ push() {
 	git-push github $ref || git-push origin $ref || git-push private $ref
 }
 
-pull() {
+function pull() {
 	ref=''
 	if [ $# -eq 0 ]; then
 		ref='master'
@@ -231,68 +239,4 @@ pull() {
 	fi
 	git-pull github $ref || git-pull origin $ref || git-pull private $ref
 }
-
-# ================================================= #
-#                                                   #
-#                   CONFIGURATIONS                  #
-#                                                   #
-# ================================================= #
-
-# Molokai colorscheme for dircolors 
-eval $(dircolors -b ~/.config/term/dircolors.molokai)
-
-# Load Xdefaults
-# I've started doing this on shell spawn, because I can't seem 
-# to get the login script to work correctly on multiple systems.
-# TODO: Perhaps call this as a script from AwesomeWM... it doesn't
-# strictly _have_ to be part of a shell init script. Think outside
-# the box.
-MY_CONFDIR=$HOME'/.config/term'
-MY_HOSTNAME=`uname -n` # $HOSTNAME isn't populated by this time !
-
-xrdb -load "$MY_CONFDIR/Xdefaults"
-
-case $MY_HOSTNAME in
-	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
-	'darwin')	xrdb -merge "$MY_CONFDIR/Xdefaults.darwin";;
-	'vaiop')	xrdb -merge "$MY_CONFDIR/Xdefaults.vaiop";;
-	*)			echo "Invalid Hostname";;
-esac
-
-# Report branch in PS1
-source $MY_CONFDIR/scripts/git-prompt.sh
-
-# Set the PS1 prompt to echo useful (and color-coded) info 
-# Note: Colors match molokai theme!
-# Codes: http://misc.flogisoft.com/bash/tip_colors_and_formatting
-
-function fgcolor()
-{
-	local color=$1
-	local bold=$2
-	if [ "$bold" == "bold" ]; then
-		echo '\e[1;38;5;'"${color}m"
-	else
-		echo '\e[0;38;5;'"${color}m"
-	fi
-}
-
-GRAY=245
-BLUE=37
-WHITE=255
-PINK=198
-
-GRAY=$(fgcolor $GRAY)
-BLUE=$(fgcolor $BLUE bold)
-WHITE=$(fgcolor $WHITE)
-PINK=$(fgcolor $PINK)
-
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_STATESEPARATOR=''
-
-export PS1="\[$GRAY\]\u@\h:${debian_chroot:+($debian_chroot)}\[$BLUE\]\w\[$GRAY\]\$(__git_ps1 '(\[$PINK\]%s\[$GRAY\])')\[$GRAY\]\$\[$WHITE\] "
-
-# Custom scripts
-#PATH=/home/brandon/bin2:$PATH
 

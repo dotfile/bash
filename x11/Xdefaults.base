@@ -1,8 +1,20 @@
 ! Xdefaults
 ! https://github.com/echelon
 ! 
+! About (adapted from http://superuser.com/a/243916):
+! .Xdefaults is the old school way of configuring X resources. Every 
+! time an Xlib program is launched, the configs are reloaded. Remotely
+! programs are unaffected by the Xdefaults on your system.
+!
+! The newer .Xresources (filename simply a convention) is loaded with
+! xrdb into the RESOURCE_MANAGER property of the root window, and
+! programs will look up resouces there, with .Xdefaults being used as a
+! fallback.
+!
+! (Seriously, just read the link above. It goes into super deep details.)
+!
 ! Usage: 
-!	xrdb -load Xdefaults 
+!	xrdb -load Xdefaults.base
 !	xrdb -merge Xdefaults.COMPUTER_NAME
 
 ! XXX/TODO/FIXME: This file is sourced often and inconsistantly:

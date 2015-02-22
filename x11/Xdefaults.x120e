@@ -2,7 +2,7 @@
 ! https://github.com/echelon
 ! 
 ! Usage: 
-!	xrdb -load Xdefaults 
+!	xrdb -load Xdefaults.base
 !	xrdb -merge Xdefaults.COMPUTER_NAME
 
 urxvt.font: xft:DejaVu Sans Mono-9:antialias=true:hinting=true

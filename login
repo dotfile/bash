@@ -11,20 +11,10 @@
 
 # XXX: Link this from .profile !
 
-MY_CONFDIR=$HOME'/.config/term'
+TERM_CONFIG_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-# $HOSTNAME isn't populated by this time !
-MY_HOSTNAME=`uname -n`
-
-# Load global Xdefaults at login *at login*
-# And also merge in machine-specific Xdefaults
-xrdb -load "$MY_CONFDIR/Xdefaults"
-
-case $MY_HOSTNAME in
-	'x120e')	xrdb -merge "$MY_CONFDIR/Xdefaults.x120e";;
-	'vaiop')	xrdb -merge "$MY_CONFDIR/Xdefaults.vaiop";;
-	*)			echo "Invalid Hostname";;
-esac
+# Load global X11 configs *at login*
+source "$TERM_CONFIG_DIR/x11/load.sh"
 
 # Xmodmap
 if [ -f $HOME/.Xmodmap ]; then
