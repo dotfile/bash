@@ -13,6 +13,8 @@
 !
 ! (Seriously, just read the link above. It goes into super deep details.)
 !
+! TODO: Migrate to using XResources
+!
 ! Usage: 
 !	xrdb -load Xdefaults.base
 !	xrdb -merge Xdefaults.COMPUTER_NAME
@@ -32,41 +34,40 @@ XTerm*termName:		xterm-256color
 ! urxvt terminal options
 ! ----------------------
 
-urxvt*background:	black
-urxvt*foreground:	white
+! Colors: background transparency with compositing, monokai-pink cursor.
+urxvt*depth:          32
+urxvt*background:     [70]#000000
+urxvt*foreground:	    white
 urxvt*underlineColor: gray
-urxvt*transparent:	true
-urxvt*shading:		6
-urxvt*scrollBar:	false
-urxvt*cursorBlink:	true
-! Molokai Pink
-urxvt*cursorColor:	#D7005F
-! Molokai Green
-!urxvt*cursorColor:	#87FF00
+urxvt*scrollBar:	    false
+urxvt*cursorColor:	  #D7005F
+urxvt*cursorBlink:	  true
 
 ! URxvt scrolling
-urxvt.keysym.Control-k: command:\033]720;1\007
-urxvt.keysym.Control-j: command:\033]721;1\007
-urxvt.keysym.Control-K: command:\033]720;1\007
-urxvt.keysym.Control-J: command:\033]721;1\007
+urxvt*keysym.Control-k: command:\033]720;1\007
+urxvt*keysym.Control-j: command:\033]721;1\007
+urxvt*keysym.Control-K: command:\033]720;1\007
+urxvt*keysym.Control-J: command:\033]721;1\007
+
+! Disable scrollback in secondary screen (pager, eg. less)
+urxvt*secondaryScreen: 1
+urxvt*secondaryScroll: 0
 
 ! URL Highlighting and Yanking
 urxvt*underlineURLs: true
-urxvt.perl-ext: selection
-!urxvt.perl-ext: mark-yank-urls
-!urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+urxvt.perl-ext:      selection
 
 ! -------------------
 ! XLock configuration
 ! -------------------
-xlock.mode: rain
-xlock.background: Black
-xlock.foreground: White
+xlock.mode:         rain
+xlock.background:   Black
+xlock.foreground:   White
 xlock.username:
-xlock.password: enter password:   
+xlock.password:     enter password:
 xlock.info: 
 xlock.description: 
-xlock.validate: Validating...
+xlock.validate:     Validating...
 xlock.icongeometry: 128x128
-xlock.font: -adobe-new century schoolbook-medium-r-normal-*-*-150-*-*-*-*-*-* 
+xlock.font:         -adobe-new century schoolbook-medium-r-normal-*-*-150-*-*-*-*-*-* 
 

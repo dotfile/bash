@@ -8,4 +8,3 @@
 urxvt.font:		xft:DejaVu Sans Mono-9:antialias=true:hinting=true
 !urxvt*font: 	xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
 urxvt*perl-lib:	/home/bt/.config/term/urxvt/
-urxvt*shading:	30
