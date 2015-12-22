@@ -5,5 +5,5 @@
 source "${TERM_CONFIG_DIR}/x11/load.sh"
 
 # Load Molokai colorscheme for dircolors 
-eval $(dircolors -b ~/.config/term/dircolors/dircolors.molokai)
+eval $(dircolors -b "${TERM_CONFIG_DIR}/dircolors/dircolors.molokai")
 
