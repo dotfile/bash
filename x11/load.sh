@@ -25,6 +25,7 @@ function _load_x_configs() {
   # Merge in system-specific Xdefaults.
   case $hostname in
     'x120e')	xrdb -merge "$directory/Xdefaults.x120e";;
+    'x16')	xrdb -merge "$directory/Xdefaults.x16";;
     'darwin')	xrdb -merge "$directory/Xdefaults.darwin";;
     'vaiop')	xrdb -merge "$directory/Xdefaults.vaiop";;
     *)			  echo "${script}: Unknown hostname, '${hostname}'.";;
