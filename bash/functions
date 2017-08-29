@@ -11,17 +11,18 @@
 #              BASH HELPER FUNCTIONS
 # =================================================
 
+# TODO(2017-04-12): Commenting out only so I can do this ML course that requires stupid 'conda'
 # Alias `source` to conveniently re-source `.bashrc` when no argument
 # is supplied.
-function source() {
-	if [ $# -eq 1 ]; then
-	  builtin source "$@"
-  else
-    bashrc="${HOME}/.bashrc"
-    echo "[source] no argument; sourcing $bashrc"
-    builtin source "$bashrc"
-  fi
-}
+#function source() {
+#	if [ $# -eq 1 ]; then
+#	  builtin source "$@"
+#  else
+#    bashrc="${HOME}/.bashrc"
+#    echo "[source] no argument; sourcing $bashrc"
+#    builtin source "$bashrc"
+#  fi
+#}
 
 # Print the definition of a shell alias or function.
 # Also print filename and line number for shell functions.
@@ -238,5 +239,11 @@ function pull() {
 		ref=$1
 	fi
 	git-pull github $ref || git-pull origin $ref || git-pull private $ref
+}
+
+# TODO: Need to find where this is configured...
+function fix-trackpoint() {
+  echo 150 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+  echo 160 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
 }
 
