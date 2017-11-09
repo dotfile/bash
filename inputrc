@@ -19,4 +19,9 @@ set completion-ignore-case on
 # Underscore and hypen treated equivalently
 set completion-map-case on
 
+# Show the readline mode on the prompt
+set show-mode-in-prompt on
+# These do not appear to work in my version of Bash/Readline:
+#set vi-ins-mode-string ">"
+#set vi-cmd-mode-string "<"
 
