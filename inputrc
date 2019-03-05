@@ -1,17 +1,10 @@
 # Readline configuration (.inputrc)
 # https://github.com/echelon
-# Requires symlink ~/.inputrc -> this file
+# Symlink ~/.inputrc -> this file
 
-# vim-like input
-set editing-mode vi
-set keymap vi
-
-#set mark-directories on
-#set mark-symlinked-directories on
-
-# ====================
+# ======================
 # Autocomplete Options
-# ====================
+# ======================
 
 # f<tab> finds `Foo` and `foo`.
 set completion-ignore-case on
@@ -19,9 +12,20 @@ set completion-ignore-case on
 # Underscore and hypen treated equivalently
 set completion-map-case on
 
-# Show the readline mode on the prompt
+# Completed directories have a '/' appended
+set mark-directories on
+set mark-symlinked-directories on
+
+# ======================
+# Modal Options
+# ======================
+
+# vim-like input
+set editing-mode vi
+set keymap vi
+
+# Show the readline mode on the prompt and customize the prefix.
 set show-mode-in-prompt on
-# These do not appear to work in my version of Bash/Readline:
-#set vi-ins-mode-string ">"
-#set vi-cmd-mode-string "<"
+set vi-ins-mode-string "+ "
+set vi-cmd-mode-string ""
 
