@@ -28,7 +28,6 @@ function _load_x_configs() {
     'x16')	xrdb -merge "$directory/Xdefaults.x16";;
     'darwin')	xrdb -merge "$directory/Xdefaults.darwin";;
     'vaiop')	xrdb -merge "$directory/Xdefaults.vaiop";;
-    *)			  echo "${script}: Unknown hostname, '${hostname}'.";;
   esac
 }
 
